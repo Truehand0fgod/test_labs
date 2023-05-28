@@ -1,4 +1,4 @@
-class Solution: #"""Доработанное  мной решение, которое проходит все тесты и учитывает все требования"""
+class Solution:  # """Доработанное  мной решение, которое проходит все тесты и учитывает все требования"""
     def myPow(self, x: float = "", n: int = "") -> float:
 
         if x == "" or n == "":
@@ -12,7 +12,7 @@ class Solution: #"""Доработанное  мной решение, кото�
                 raise ValueError("you can't raise 0 to the power of 0")
             if n < 0:
                 raise ValueError("Can't divide by 0")
-        if n < -2**31 or n > 2**31-1:
+        if n < -2 ** 31 or n > 2 ** 31 - 1:
             raise ValueError("exponent must be between -2**31 <= n <= 2**31-1")
         if x <= -100 or x >= 100:
             raise ValueError(f"Base power must be between -100 and 100, your base power is {x}")
@@ -27,13 +27,14 @@ class Solution: #"""Доработанное  мной решение, кото�
             return x * res if n % 2 else res
 
         res = helper(x, abs(n))
-        if -10**4 <= res <= 10**4:
-            if n >=0:
+        if -10 ** 4 <= res <= 10 ** 4:
+            if n >= 0:
                 return res
             else:
-                return 1/res
+                return 1 / res
         else:
-            raise ValueError(f"The result of the calculation doesnt meet the limit: -10**4 <= x**n <= 10**4/n Your res is {1/res}")
+            raise ValueError(
+                f"The result of the calculation doesnt meet the limit: -10**4 <= x**n <= 10**4/n Your res is {1 / res}")
 
 
 """Исходное решение с leetCode, которое не прошло такие тесты как:
@@ -54,8 +55,7 @@ class Solution: #"""Доработанное  мной решение, кото�
     15)test_solution_bool_base
     16)test_solution_no_base
     17)test_solution_no_exp"""
-    
-    
+
 # class Solution:
 #     def myPow(self, x: float, n: int) -> float:
 #         def helper(x, n):
