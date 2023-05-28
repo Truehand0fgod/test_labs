@@ -53,6 +53,14 @@ class TestClass:
         response = requests.post(BASE_URL, data={"n": 3})
         assert response.status_code == 400
 
+    def test_solution_without_exp(self):
+        response = requests.post(BASE_URL, data={"x": 3})
+        assert response.status_code == 400
+
+    def test_solution_without_data(self):
+        response = requests.post(BASE_URL, data={})
+        assert response.status_code == 400
+
     def test_solution_with_extra_fields_without_error(self):
         response = requests.post(BASE_URL, data={"x": 4, "n": 3, "test": 123})
         assert response.status_code == 200
